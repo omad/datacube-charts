@@ -54,8 +54,7 @@ spec:
         imagePullPolicy: {{ $.Values.owsConfig.image.pullPolicy }}
         {{- if .Values.owsConfig.image.src }}
         args: [ "cp", "-f", "{{ .Values.owsConfig.image.src }}", "{{ .Values.owsConfig.path }}/{{ .Values.owsConfig.filename }}" ]
-        {{- end }}
-        {{- if .Values.owsConfig.image.cfg_folder }}
+        {{- else if .Values.owsConfig.image.cfg_folder }}
         args: [ "cp", "-rf", "{{ .Values.owsConfig.image.cfg_folder }}", "{{ .Values.owsConfig.path }}" ]
         {{- end }}
         volumeMounts:
@@ -131,7 +130,12 @@ spec:
           value: {{ $value | quote }}
 {{- end }}
 {{- end }}
-        image: "{{ .Values.ows.image.registry }}/{{ .Values.ows.image.repository }}:{{ .Values.ows.image.tag }}"
+        {{- $registry := .Values.global.imageRegistry | default .Values.ows.image.registry -}}
+        {{- if .Values.image.sha }}
+        image: "{{ $registry }}/{{ .Values.ows.image.repository }}:{{ .Values.ows.image.tag | default .Chart.AppVersion }}@sha256:{{ .Values.ows.image.sha }}"
+        {{- else }}
+        image: "{{ $registry }}/{{ .Values.ows.image.repository }}:{{ .Values.ows.image.tag | default .Chart.AppVersion }}"
+        {{- end }}
         imagePullPolicy: {{ .Values.ows.image.pullPolicy }}
         ports:
         - containerPort: 8000
