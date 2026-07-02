@@ -14,10 +14,13 @@ pdb:
   minAvailable: 1
 
 image:
-  registry: docker.io
+  # -- The Docker registry
+  registry: ghcr.io
+  # -- Docker image repository
   repository: opendatacube/explorer
-  tag: "latest"
-  pullPolicy: Always
+  # Overrides the Grafana image tag whose default is the chart appVersion
+  tag: ""
+  pullPolicy: IfNotPresent
 
 database:
   database: datacube
