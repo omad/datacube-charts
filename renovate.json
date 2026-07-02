@@ -10,7 +10,7 @@
     {
       "enabled": true,
       "matchFileNames": [
-        "charts/**"
+        "stable/**"
       ],
       "commitMessagePrefix": "[{{ lookup (split packageFileDir '/') 1 }}] ",
       "groupName": "{{ lookup (split packageFileDir '/') 1 }} dependency non-major updates",
