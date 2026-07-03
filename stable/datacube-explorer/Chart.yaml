@@ -2,7 +2,10 @@ apiVersion: v2
 description: A Helm chart for Datacube Explorer
 name: datacube-explorer
 version: 0.5.32
-# renovate: docker=ghcr.io/opendatacube/explorer
+# The following 'renovate' comment is a marker for
+# https://docs.renovatebot.com/presets-customManagers/#custommanagershelmchartyamlappversions
+#
+# renovate: image=ghcr.io/opendatacube/explorer
 appVersion: 1.0.0
 keywords:
 - datacube
