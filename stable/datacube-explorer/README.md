@@ -13,6 +13,11 @@ A Helm chart for Datacube Explorer
 | omad |  |  |
 | pjonsson |  |  |
 
+## Source Code
+
+* <https://github.com/opendatacube/explorer>
+* <https://github.com/opendatacube/datacube-charts>
+
 ## Values
 
 | Key | Type | Default | Description |
@@ -57,7 +62,9 @@ A Helm chart for Datacube Explorer
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0] | string | `""` |  |
+| ingress.ingressClassName | string | `""` | Name of the IngressClass to use. Left empty the cluster default applies. |
 | ingress.path | string | `"/"` |  |
+| ingress.pathType | string | `"Prefix"` | Ingress path type. One of Prefix, Exact or ImplementationSpecific. |
 | internalPort | int | `8080` |  |
 | livenessProbe.failureThreshold | int | `5` |  |
 | livenessProbe.httpGet.path | string | `"/stac"` |  |
@@ -67,17 +74,20 @@ A Helm chart for Datacube Explorer
 | livenessProbe.timeoutSeconds | int | `60` |  |
 | pdb.enabled | bool | `true` |  |
 | pdb.minAvailable | int | `1` |  |
+| pdb.annotations | object | `{}` |  |
+| pdb.enabled | bool | `true` |  |
+| pdb.minAvailable | int | `1` |  |
 | readinessProbe.failureThreshold | int | `5` |  |
 | readinessProbe.httpGet.path | string | `"/stac"` |  |
 | readinessProbe.httpGet.port | int | `8080` |  |
 | readinessProbe.initialDelaySeconds | int | `10` |  |
 | readinessProbe.periodSeconds | int | `30` |  |
 | readinessProbe.timeoutSeconds | int | `60` |  |
-| replicaCount | int | `1` |  |
+| replicaCount | int | `1` | Number of replicas. Ignored when `hpa.enabled` is true. |
 | resources.limits.cpu | string | `"300m"` |  |
 | resources.limits.memory | string | `"1024Mi"` |  |
 | service.type | string | `"ClusterIP"` |  |
-| serviceAccountName | string | `nil` |  |
+| serviceAccountName | string | `nil` | Name of an existing ServiceAccount to run the pods under. |
 | startupProbe.failureThreshold | int | `5` |  |
 | startupProbe.httpGet.path | string | `"/stac"` |  |
 | startupProbe.httpGet.port | int | `8080` |  |
