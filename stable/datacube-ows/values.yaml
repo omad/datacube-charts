@@ -18,6 +18,8 @@ serviceAccount: {}
 clusterInfo:
   envName: dev
 database:
+  # @schema type: [string, null]
+  # -- Name of an existing Secret holding `postgres-username` / `postgres-password`.
   existingSecret:
   database: datacube
   host: localhost
@@ -52,7 +54,8 @@ ows:
   securityContext: {}
   hpa:
     autoscaling: true
-    metrics: {}
+    # -- HorizontalPodAutoscaler metrics. A list, as per the HPA v2 spec.
+    metrics: []
 owsConfig:
   image:
     registry: ghcr.io
