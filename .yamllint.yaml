@@ -10,9 +10,8 @@ rules:
   line-length: disable
   # Charts don't use document start markers.
   document-start: disable
-  # `on:` in workflow files is a YAML 1.1 boolean. Warn, don't fail.
-  truthy:
-    level: warning
+  # `on:` in workflow files is a YAML 1.1 boolean.
+  truthy: disable
   comments:
     require-starting-space: true
     min-spaces-from-content: 1
