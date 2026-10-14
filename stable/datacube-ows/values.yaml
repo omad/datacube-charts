@@ -54,8 +54,6 @@ ows:
   securityContext: {}
   hpa:
     autoscaling: true
-    metrics: {}
-    autoscaling: true
     # -- HorizontalPodAutoscaler metrics. A list, as per the HPA v2 spec.
     metrics: []
 owsConfig:
