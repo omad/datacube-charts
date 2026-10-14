@@ -59,8 +59,8 @@ jobs:
   chart-testing:
     runs-on: ubuntu-latest
     outputs:
-        changed: ${{ steps.list-changed.outputs.changed }}
-        changed_list: ${{ steps.list-changed.outputs.changed_list }}
+      changed: ${{ steps.list-changed.outputs.changed }}
+      changed_list: ${{ steps.list-changed.outputs.changed_list }}
 
     permissions:
       contents: read
