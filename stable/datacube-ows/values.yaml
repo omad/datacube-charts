@@ -52,11 +52,11 @@ ows:
   livenessProbe: {}
   readinessProbe: {}
   startupProbe: {}
-  # ows.securityContext -- Deployment level security context
+  # Deployment level security context
   securityContext: {}
   hpa:
     autoscaling: true
-    # -- HorizontalPodAutoscaler metrics. A list, as per the HPA v2 spec.
+    # HorizontalPodAutoscaler metrics.
     metrics: []
 owsConfig:
   image:
@@ -64,13 +64,13 @@ owsConfig:
     repository: opendatacube/ows
     tag: latest
     pullPolicy: Always
-    # the folder location within the docker image that contains
+    # The folder location within the running Pod which contains the
     # ows config file
     cfg_folder: "/code/integration_tests/cfg"
-  # owsConfig.securityContext -- Container level security context
+  # securityContext -- Container level security context
   securityContext: {}
   path: "/env/config"
-  # the ows config python objection
+  # the OWS config Python Object
   ows_cfg: "cfg.ows_test_cfg.ows_cfg"
 
 pyspy:

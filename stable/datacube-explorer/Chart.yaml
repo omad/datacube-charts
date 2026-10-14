@@ -3,6 +3,8 @@ type: application
 name: datacube-explorer
 description: A Helm chart for Datacube Explorer
 version: 0.5.34
+# renovate: docker=ghcr.io/opendatacube/ows
+appVersion: 1.0.0
 keywords:
   - datacube
   - http
