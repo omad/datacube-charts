@@ -31,6 +31,7 @@ jobs:
         uses: losisin/helm-docs-github-action@9e0787c426fdec38be6288bb5c0559dcb388412c # v2.0.1
         with:
           fail-on-diff: true
+          skip-version-footer: true
 
   kubeconform-chart:
     runs-on: ubuntu-latest
@@ -132,4 +133,3 @@ jobs:
         env:
           chart: "${{ matrix.chart }}"
         run: ct install --config ct.yaml --charts "$chart"
-
